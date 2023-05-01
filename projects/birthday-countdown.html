@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Kitty Squad - Projects - Birthday Countdown Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrKlDdvggecMuqEnnWEqRISH6B3HIH0x6ESA&usqp=CAU">
+  </head>
+  <body>
+    <a href="/projects"><--Back</a>
+  <br>
+    <br>
+  <br>
+    <h1 style="font-family:Calibri; color:purple; font-size: 30px;">Birthday Countdown Calculator</h2>
+    <!--<h3 style="font-family:Calibri; color:Purple; font-size: 20px;">By Lucas H.</h2>-->
+    <p style="font-family:Calibri; font-size: 15px;">This calculator tells you how many days until your birthday. 
+    Enter your birthday in the dropdowns below, then click 'ENTER' to calculate.</p>
+      <br><br><label for="sel-options" style="font-family:Calibri;  font-size: 17px;">
+  Month: </label><select id="opts" onchange="showForm()">
+    <option value="0">Select...</option>
+    <option value="1">Jan</option>
+    <option value="2">Feb</option>
+    <option value="3">Mar</option>
+    <option value="4">Apr</option>
+    <option value="5">May</option>
+    <option value="6">Jun</option>
+    <option value="7">Jul</option>
+    <option value="8">Aug</option>
+    <option value="9">Sep</option>
+    <option value="10">Oct</option>
+    <option value="11">Nov</option>
+    <option value="12">Dec</option>
+</select>
+
+<p id="monthError" style="font-family:Calibri; color:Red; font-size: 14px;"></p>
+<div id="f1">
+    <form name="form1">
+      <label for="sel-options" style="font-family:Calibri;  font-size: 17px;">
+  Day:  </label>
+        <select id="allDays" onchange="showForm()">
+            <option value="0">Select...</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+            <option value="31">31</option>
+            
+        </select>
+    </form>
+</div>
+
+<div id="f2" style="display:none">
+    <form name="form2">
+      <label for="sel-options" style="font-family:Calibri;  font-size: 17px;">
+  Day:  </label>
+        <select id="mostDays" onchange="showForm()">
+            <option value="0">Select...</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <option value="29">29</option>
+            <option value="30">30</option>
+        </select>
+    </form>
+</div>
+
+<div id="f3" style="display:none">
+    <form name="form3">
+      <label for="sel-options" style="font-family:Calibri; font-size: 17px;">
+  Day:  </label>
+        <select id="lessDays" onchange="showForm()">
+            <option value="0">Select...</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+            <option value="11">11</option>
+            <option value="12">12</option>
+            <option value="13">13</option>
+            <option value="14">14</option>
+            <option value="15">15</option>
+            <option value="16">16</option>
+            <option value="17">17</option>
+            <option value="18">18</option>
+            <option value="19">19</option>
+            <option value="20">20</option>
+            <option value="21">21</option>
+            <option value="22">22</option>
+            <option value="23">23</option>
+            <option value="24">24</option>
+            <option value="25">25</option>
+            <option value="26">26</option>
+            <option value="27">27</option>
+            <option value="28">28</option>
+            <!--<option value="29">29</option>-->
+        </select>
+    </form>
+</div>
+
+<p id="dayError" style="font-family:Calibri; color:Red; font-size: 14px;"></p>
+
+
+
+<script type="text/javascript">
+    function showForm() {
+        var selopt = document.getElementById("opts").value;
+        if (selopt == 1) {
+            document.getElementById("f1").style.display = "block";
+            document.getElementById("f2").style.display = "none";
+            document.getElementById("f3").style.display = "none";
+        }
+        if (selopt == 2) {
+            document.getElementById("f3").style.display = "block";
+            document.getElementById("f1").style.display = "none";
+            document.getElementById("f2").style.display = "none";
+        }
+        if (selopt==3) {
+            document.getElementById("f1").style.display = "block";
+            document.getElementById("f2").style.display = "none";
+            document.getElementById("f3").style.display = "none";
+        }
+         if (selopt == 4) {
+            document.getElementById("f3").style.display = "none";
+            document.getElementById("f1").style.display = "none";
+            document.getElementById("f2").style.display = "block";
+        }
+        if (selopt == 5) {
+            document.getElementById("f2").style.display = "none";
+            document.getElementById("f3").style.display = "none";
+            document.getElementById("f1").style.display = "block";
+        }
+        if (selopt == 6) {
+            document.getElementById("f3").style.display = "none";
+            document.getElementById("f1").style.display = "none";
+            document.getElementById("f2").style.display = "block";
+        }
+        if (selopt == 7) {
+            document.getElementById("f2").style.display = "none";
+            document.getElementById("f3").style.display = "none";
+            document.getElementById("f1").style.display = "block";
+        }
+        if (selopt == 8) {
+            document.getElementById("f2").style.display = "none";
+            document.getElementById("f3").style.display = "none";
+            document.getElementById("f1").style.display = "block";
+        }
+        if (selopt == 9) {
+            document.getElementById("f3").style.display = "none";
+            document.getElementById("f1").style.display = "none";
+            document.getElementById("f2").style.display = "block";
+        }
+        if (selopt == 10) {
+            document.getElementById("f2").style.display = "none";
+            document.getElementById("f1").style.display = "block";
+            document.getElementById("f3").style.display = "none";
+        }
+        if (selopt == 11) {
+            document.getElementById("f2").style.display = "block";
+            document.getElementById("f1").style.display = "none";
+            document.getElementById("f3").style.display = "none";
+        }
+        if (selopt == 12) {
+            document.getElementById("f2").style.display = "none";
+            document.getElementById("f1").style.display = "block";
+            document.getElementById("f3").style.display = "none";
+        }
+    }
+</script>
+<script>
+
+  let a= document.getElementById('mostDays');
+  
+  let b = document.getElementById('allDays');
+
+  let c = document.getElementById('opts');
+    
+  let d = document.getElementById('lessDays');
+  </script>
+  
+  <br />
+  
+  <button onclick="myFunction()" style="font-family:Calibri;  font-size: 14px;">
+  ENTER</button>
+<br />
+<br />
+<br />
+  <p id = "daysToGo" style="font-family:Calibri; font-size: 20px;"></p>
+  <p id = "birthdayMessage" style="font-family:Calibri; font-size: 18px;"></p>
+
+   
+  
+  <script>
+const today = new Date();
+function myFunction() {
+  
+  var selopt = document.getElementById("opts").value;
+  var p;
+  
+  if (selopt==1){
+    
+     p = allDays.value;
+    
+  } else if(selopt==2) {
+    
+    p = lessDays.value;
+    
+  } else if(selopt==3) {
+  
+    p = allDays.value;
+  } else if(selopt==4) {
+  
+    p = mostDays.value;
+  } else if(selopt==5) {
+  
+    p = allDays.value;
+  } else if(selopt==6) {
+  
+    p = mostDays.value;
+  } else if(selopt==7) {
+  
+    p = allDays.value;
+  } else if(selopt==8) {
+  
+    p = allDays.value;
+  } else if(selopt==9) {
+  
+    p = mostDays.value;
+  } else if(selopt==10) {
+  
+    p = allDays.value;
+  } else if(selopt==11) {
+  
+    p = mostDays.value;
+  } else if(selopt==12) {
+  
+    p = allDays.value;
+  } else if (selopt ==0) {
+    
+    if (allDays.value==0&&lessDays.value==0) {
+      
+      p = mostDays.value;
+    } else {
+      
+      
+      p = allDays.value;
+    }
+    
+  }
+  
+  
+  if (opts.value==0) {
+    document.getElementById("monthError").innerHTML = "*Please select a month";
+  } else {
+  document.getElementById("monthError").innerHTML = null;
+  }
+  
+  
+  if (p==0) {
+    
+    document.getElementById("dayError").innerHTML = "*Please select a day";
+  } else {
+  document.getElementById("dayError").innerHTML = null;
+  
+  
+  
+  var date1, date2, date3;  
+        date2 = new Date(); 
+        var day = p;
+        var month = opts.value-1;
+        var year = date2.getFullYear();
+        
+        date1 = new Date(year, month, day);  
+         
+  
+        
+        var time_difference = date1.getTime() - date2.getTime();  
+  
+        //calculate days difference by dividing total milliseconds in a day  
+        var days_difference = time_difference / (1000 * 60 * 60 * 24);  
+         
+        var daysLeft = (Math.floor(days_difference))+1;
+        
+        if (daysLeft<0) {
+          
+        date3 = new Date(year+1, month, day);
+         
+         //calculate time difference  
+        time_difference = date3.getTime() - date2.getTime();  
+  
+        //calculate days difference by dividing total milliseconds in a day  
+        days_difference = time_difference / (1000 * 60 * 60 * 24);  
+         
+         daysLeft = (Math.floor(days_difference))+1;
+        
+        }
+        
+        
+        if (opts.value==0) {
+          document.getElementById("daysToGo").innerHTML = null;
+          
+        } else {
+        document.getElementById("daysToGo").innerHTML = "Days left: " + daysLeft;
+        }
+        
+        
+        if (daysLeft==0) {
+        document.getElementById("birthdayMessage").innerHTML = "Happy Birthday!";
+        } else {
+          
+          document.getElementById("birthdayMessage").innerHTML = null;
+        }
+  }
+}
+</script>
+  </body>
+</html>
