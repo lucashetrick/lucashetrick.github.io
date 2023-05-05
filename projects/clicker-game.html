@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CooCoo Clicker</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      
+      <p id = "meow" style="font-family:Calibri; color:purple; font-size: 100px;"></p> 
+     <p id = "dog" style="font-family:Calibri; color:purple; font-size: 100px;"></p> 
+    
+      <button onclick="myFunction()">
+        dog
+      </button>
+ <button onclick="change()">
+        Get power up
+      </button>
+  <script>
+  var meow = 0;
+  var powerup=1;
+  var price=0
+  
+  function change() {
+  price=50;
+  powerup = 10;
+  }
+
+  function myFunction() {
+    
+    var dog = meow;
+    meow = meow+powerup;
+    var cat = meow-price;
+  
+    document.getElementById("meow").innerHTML = cat;
+    
+  }
+  </script>
+  
+  </body>
+</html>
