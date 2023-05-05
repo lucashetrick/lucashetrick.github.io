@@ -12,10 +12,10 @@
       </button>
    <br>
  <button onclick="powerup_2x()">
-        2x powerup - $1.50
+        2x powerup - $150
       </button>
     <button onclick="powerup_4x()">
-        2x powerup - $2.50
+        2x powerup - $250
       </button>
     
     
@@ -25,8 +25,11 @@
   var price=0
   
   function powerup_2x() {
+  var money = myFunction();
+    if (money>=150) {
   price=150;
   powerup = 2;
+    }
   }
     
     function powerup_4x() {
@@ -41,7 +44,7 @@
     
   
     document.getElementById("meow").innerHTML = "$" + cat;
-    
+    return cat;
   }
   </script>
   
