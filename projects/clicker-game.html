@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Penny Clicker</title>
+    <title>Money Clicker</title>
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
@@ -10,26 +10,37 @@
       <button onclick="myFunction()">
         CLICK ME!
       </button>
- <button onclick="change()">
-        Get 2x power up - $1.50
+   <br>
+ <button onclick="powerup_2x()">
+        2x powerup - $1.50
       </button>
+    <button onclick="powerup_4x()">
+        2x powerup - $2.50
+      </button>
+    
+    
   <script>
   var meow = 0;
   var powerup=1;
   var price=0
   
-  function change() {
+  function powerup_2x() {
   price=150;
+  powerup = 2;
+  }
+    
+    function powerup_4x() {
+  price=250;
   powerup = 2;
   }
 
   function myFunction() {
     
-    var dog = meow;
     meow = meow+powerup;
     var cat = meow-price;
+    
   
-    document.getElementById("meow").innerHTML = "$" + (cat/100);
+    document.getElementById("meow").innerHTML = "$" + cat;
     
   }
   </script>
