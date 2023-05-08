@@ -6,46 +6,126 @@
   </head>
   <body>
       
-      <p id = "meow" style="font-family:Calibri; color:purple; font-size: 100px;"></p>
-      <button onclick="myFunction()">
-        CLICK ME!
-      </button>
-   <br>
- <button onclick="powerup_2x()">
-        2x powerup - $150
-      </button>
-    <button onclick="powerup_4x()">
-        2x powerup - $250
-      </button>
+      <p id = "score" style="font-family:Arial; color:purple; font-size: 20px;"></p> 
+     <p id = "change" style="font-family:Arial; color:purple; font-size: 20px;"></p> 
+    <p id = "e" style="font-family:Arial; color:purple; font-size: 20px;"></p> 
     
-    
+      <button onclick="myFunction(); display();">
+        CLICK ME
+      </button>
+      <br>
+      <button onclick="init();  display();">
+        CURSOR - $100
+      </button>
+      
+      <br>
+ <button onclick="change(); display();">
+        POWERUP - $100
+      </button>
   <script>
-  var meow = 0;
+  var score = 0;
   var powerup=1;
-  var price=0
+  var price = 100;
+  var prev;
   
-  function powerup_2x() {
-  var money = myFunction();
-    if (money>=150) {
-  price=150;
-  powerup = 2;
+  var time;
+  var purchased = 0;
+  var meow = false;
+  var interval = 0;
+  var yes;
+  
+  function change() {
+    
+    if (score>=100) {
+    prev=score;
+  powerup = powerup+1;
+  
+  score=score-100;
+      
     }
   }
-    
-    function powerup_4x() {
-  price=250;
-  powerup = 2;
-  }
+  
+  
 
   function myFunction() {
+    prev=score;
+    var dog = score;
+    score = score+powerup;
     
-    meow = meow+powerup;
-    var cat = meow-price;
-    
-  
-    document.getElementById("meow").innerHTML = "$" + cat;
-    return cat;
   }
+  
+  
+
+
+  function delay(milliseconds){
+    return new Promise(resolve => {
+        setTimeout(resolve, milliseconds);
+    });
+}
+
+
+  
+  
+
+
+async function init(){
+    if(score>=100){
+    
+  interval = interval+1;
+  score=score-100;
+  yes = true; }
+    
+    if (meow==true) {
+      return;
+    } else if(yes) {
+    
+    while(true){
+      
+      await delay(1000/interval);
+      prev=score;
+      score = score+1;
+      meow = true;
+      display();
+      
+      
+    }
+
+    
+}}
+
+
+
+
+function screenLog(text){
+  document.body.innerHTML += '> ' + text + '<br>';
+}
+
+  
+  function display() {
+    var change = score-prev;
+    var dog;
+    
+    if (change>0){
+      
+      dog = "+$"+change;
+    } else if (change<0){
+      
+      
+      dog = "-$"+Math.abs(change);
+    }
+    
+    document.getElementById("score").innerHTML = "$"+(score);
+    document.getElementById("change").innerHTML = dog;
+    
+  }
+  
+  
+  
+  
+
+// cursor();                   
+
+
   </script>
   
   </body>
