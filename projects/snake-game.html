@@ -15,7 +15,167 @@ if(input==p)
       
 </script>
   
-  <p>It works!!!!!</p>
+  
+
+  <style>
+    #game-board {
+      width: 400px;
+      height: 400px;
+      border: 1px solid #000;
+    }
+  </style>
+
+
+  <h1>Snake Game</h1>
+  <div id="game-board"></div>
+
+  <script>
+    // Game board size
+    const BOARD_SIZE = 20;
+    const CELL_SIZE = 20;
+
+    // Snake object
+    const snake = {
+      body: [{ x: 10, y: 10 }],
+      direction: { x: 0, y: 0 },
+      score: 0
+    };
+
+    // Food object
+    const food = {
+      x: Math.floor(Math.random() * BOARD_SIZE),
+      y: Math.floor(Math.random() * BOARD_SIZE)
+    };
+
+    // Game board element
+    const gameBoard = document.getElementById("game-board");
+
+    // Keydown event listener
+    document.addEventListener("keydown", changeDirection);
+
+    // Game loop
+    setInterval(updateGame, 100);
+
+    // Function to update the game
+    function updateGame() {
+      moveSnake();
+      if (isCollision()) {
+        gameOver();
+        return;
+      }
+      if (isEatingFood()) {
+        snake.score++;
+        updateScore();
+        generateFood();
+      }
+      clearBoard();
+      drawSnake();
+      drawFood();
+    }
+
+    // Function to move the snake
+    function moveSnake() {
+      const head = { x: snake.body[0].x + snake.direction.x, y: snake.body[0].y + snake.direction.y };
+      snake.body.unshift(head);
+      if (snake.body.length > snake.score + 1) {
+        snake.body.pop();
+      }
+    }
+
+    // Function to check collision
+    function isCollision() {
+      const head = snake.body[0];
+      return (
+        head.x < 0 ||
+        head.x >= BOARD_SIZE ||
+        head.y < 0 ||
+        head.y >= BOARD_SIZE ||
+        snake.body.slice(1).some(segment => segment.x === head.x && segment.y === head.y)
+      );
+    }
+
+    // Function to check if the snake is eating food
+    function isEatingFood() {
+      const head = snake.body[0];
+      return head.x === food.x && head.y === food.y;
+    }
+
+    // Function to generate new food
+    function generateFood() {
+      food.x = Math.floor(Math.random() * BOARD_SIZE);
+      food.y = Math.floor(Math.random() * BOARD_SIZE);
+    }
+
+    // Function to draw the snake on the game board
+    function drawSnake() {
+      snake.body.forEach(segment => {
+        const snakeSegment = document.createElement("div");
+        snakeSegment.style.width = CELL_SIZE + "px";
+        snakeSegment.style.height = CELL_SIZE + "px";
+        snakeSegment.style.backgroundColor = "#000";
+        snakeSegment.style.position = "absolute";
+        snakeSegment.style.left = segment.x * CELL_SIZE + "px";
+        snakeSegment.style.top = segment.y * CELL_SIZE + "px";
+        gameBoard.appendChild(snakeSegment);
+      });
+    }
+
+    // Function to draw the food on the game board
+    function drawFood() {
+      const foodElement = document.createElement("div");
+      foodElement.style.width = CELL_SIZE + "px";
+      foodElement.style.height = CELL_SIZE + "px";
+      foodElement.style.backgroundColor = "#f00";
+      foodElement.style.position = "absolute";
+      foodElement.style.left = food.x * CELL_SIZE + "px";
+      foodElement.style.top = food.y * CELL_SIZE + "px";
+      gameBoard.appendChild(foodElement);
+    }
+
+    // Function to clear the game board
+    function clearBoard() {
+      while (gameBoard.firstChild) {
+        gameBoard.removeChild(gameBoard.firstChild);
+      }
+    }
+
+    // Function to update the score
+    function updateScore() {
+      const scoreElement = document.getElementById("score");
+      scoreElement.textContent = "Score: " + snake.score;
+    }
+
+    // Function to handle keydown event and change the direction of the snake
+    function changeDirection(event) {
+      const LEFT_KEY = 37;
+      const UP_KEY = 38;
+      const RIGHT_KEY = 39;
+      const DOWN_KEY = 40;
+
+      switch (event.keyCode) {
+        case LEFT_KEY:
+          snake.direction = { x: -1, y: 0 };
+          break;
+        case UP_KEY:
+          snake.direction = { x: 0, y: -1 };
+          break;
+        case RIGHT_KEY:
+          snake.direction = { x: 1, y: 0 };
+          break;
+        case DOWN_KEY:
+          snake.direction = { x: 0, y: 1 };
+          break;
+      }
+    }
+
+    // Function to handle game over
+    function gameOver() {
+      clearInterval(updateGame);
+      alert("Game Over! Your score is: " + snake.score);
+    }
+  </script>
+
+
 
     </body>
   </html>
