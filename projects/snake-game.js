@@ -7,3 +7,5 @@ if(input==p)
   window.location="./projects"
 }
 }
+
+do ();
