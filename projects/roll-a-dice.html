@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Roll A Dice</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+      <p id="demo" style="font-family:Calibri; color:purple; font-size: 80px;"></p>
+      
+      <button onclick="roll();" style="font-family:Calibri; color:purple;  font-size: 50px;"><img src = "https://freepngimg.com/save/12025-dice-png/398x400" style= "height:30%; width:30%;"></button>
+      
+    <h2 style="font-family:Calibri; color:red; font-size: 50px;">Sides: </h2>
+      <button onclick="decrease()" style="font-family:Calibri; color:blue; font-size: 30px;">-</button>
+<input id=sides type=number value = 6 min=2 style="font-family:Calibri; color:purple; font-size: 50px;">
+<button onclick="increase()" style="font-family:Calibri; color:red; font-size: 30px;">+</button>
+   
+
+<script>
+
+function increase() {
+        document.getElementById('sides').stepUp();
+    }
+function decrease() {
+        document.getElementById('sides').stepDown();
+    }
+    
+function roll () {
+  var y = document.getElementById('sides');
+let x = Math.floor(Math.random() * y.valueAsNumber)+1;
+document.getElementById("demo").innerHTML = x;
+}
+
+roll ();
+
+</script>
+      
+  </body>
+</html>
