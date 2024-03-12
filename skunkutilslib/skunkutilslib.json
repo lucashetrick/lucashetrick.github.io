@@ -1,0 +1,20 @@
+{
+    "fileName": "SkunkUtilsLib.json",
+    "name": "SkunkUtilsLib",
+    "version": "2024.0.1",
+    "uuid": "ffc261e4-6fc7-42ef-8705-ce7a8c6a9a65",
+    "frcYear": "2024",
+    "mavenUrls": [
+        "https://lucashetrick.github.io/skunkutilslib"
+    ],
+    "jsonUrl": "https://lucashetrick.github.io/skunkutilslib/skunkutils.json",
+    "javaDependencies": [
+        {
+            "groupId": "com.skunkutils.lib",
+            "artifactId": "SkunkUtilsLib-java",
+            "version": "2024.0.1"
+        }
+    ],
+    "jniDependencies": [],
+    "cppDependencies": []
+}
